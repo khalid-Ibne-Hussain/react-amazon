@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <div className='font-bodyFont'>
+      <div className='font-bodyFont bg-gray-100'>
         <Header />
         <Outlet />
         <Footer />

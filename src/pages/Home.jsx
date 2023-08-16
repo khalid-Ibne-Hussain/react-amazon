@@ -10,7 +10,9 @@ const Home = () => {
     return (
         <div>
             <Banner />
-            <Products productsData={productsData} />
+            <div className='w-full -mt-10 xl:-mt-36 py-10'>
+                <Products productsData={productsData} />
+            </div>
         </div>
     );
 };

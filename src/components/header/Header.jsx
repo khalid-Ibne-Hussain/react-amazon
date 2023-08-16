@@ -8,6 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { allItems } from "../../constants";
 import HeaderBottom from "./HeaderBottom";
+import { Link } from "react-router-dom";
 
 
 
@@ -17,21 +18,21 @@ const Header = () => {
 
     return (
         <div className="w-full sticky top-0 z-50">
-            <div className="w-full bg-amazon_blue text-white px-4 py-3 flex">
+            <div className="w-full bg-amazon_blue text-white px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4">
 
                 {/* ________________ logo Start */}
-                <div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
+                <div className="headerHover">
                     <img className="w-24 mt-2" src={logo} alt="logo image" />
                 </div>
                 {/* ________________ logo End */}
                 {/* ________________ Delivery Start */}
-                <div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
+                <div className="headerHover hidden mdl:inline-flex">
                     <LocationOnOutlinedIcon />
                     <p className="text-sm text-lightText font-light flex flex-col">Deliver to{" "} <span className="text-sm font-semibold -mt-1 text-whiteText">Bangladesh</span></p>
                 </div>
                 {/* ________________ Delivery End */}
                 {/* ________________ Search Start */}
-                <div className="h-10 rounded-md flex flex-grow relative border-none">
+                <div className="h-10 rounded-md hidden  lgl:flex flex-grow relative border-none">
                     <span
                         onClick={() => setShowAll(!showAll)}
                         className="w-14 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md">All <span></span><ArrowDropDownIcon />
@@ -57,18 +58,20 @@ const Header = () => {
                 </div>
                 {/* ________________ Search End */}
                 {/* ________________ Sign in Start */}
-                <div className="flex flex-col justify-center px-2 h-[80%] items-center border border-transparent hover:border-white cursor-pointer duration-100">
-                    <p className="text-xs text-lightText font-light">Hello, sign in</p>
-                    <p className="text-sm font-semibold -mt-1 text-whiteText">
-                        Accounts & Lists{" "}
-                        <span>
-                            <ArrowDropDownIcon />
-                        </span>
-                    </p>
-                </div>
+                <Link to="/signIn">
+                    <div className="flex flex-col items-start justify-center headerHover">
+                        <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">Hello, sign in</p>
+                        <p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
+                            Accounts & Lists{" "}
+                            <span>
+                                <ArrowDropDownIcon />
+                            </span>
+                        </p>
+                    </div>
+                </Link>
                 {/* ________________ Sign in End */}
                 {/* ________________ Returns Start */}
-                <div className="flex flex-col justify-center px-2 h-[80%] items-center border border-transparent hover:border-white cursor-pointer duration-100">
+                <div className=" flex flex-col items-start justify-center headerHover">
                     <p className="text-xs text-lightText font-light">Returns</p>
                     <p className="text-sm font-semibold -mt-1 text-whiteText">& Orders</p>
                 </div>

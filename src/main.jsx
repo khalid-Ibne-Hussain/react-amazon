@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './pages/Home.jsx';
+import SignIn from './pages/Signin.jsx';
 
 
 const router = createBrowserRouter([
@@ -20,7 +21,12 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: ({ params }) => fetch('https://fakestoreapi.com/products')
       },
-    ]
+      {
+        path: "signIn",
+        element: <SignIn />,
+      }
+    ],
+
   },
 ]);
 

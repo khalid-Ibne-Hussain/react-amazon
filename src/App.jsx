@@ -1,8 +1,13 @@
 
+import { Outlet } from 'react-router-dom';
 import './App.css'
 import Footer from './components/footer/Footer'
 import Header from './components/header/Header'
 import Banner from './components/home/Banner'
+
+
+import Home from './pages/Home';
+
 
 function App() {
 
@@ -11,7 +16,7 @@ function App() {
     <>
       <div className='font-bodyFont'>
         <Header />
-        <Banner />
+        <Outlet />
         <Footer />
       </div>
     </>

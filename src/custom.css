@@ -32,3 +32,31 @@
         text-decoration: underline;
     }
 }
+
+
+.productLi {
+    color: #4a5568;
+    /* Equivalent to text-gray-600 */
+    font-size: 0.875rem;
+    /* Equivalent to text-sm */
+    font-weight: 500;
+    /* Equivalent to font-medium */
+    border-bottom: 1px solid #cbd5e0;
+    /* Equivalent to border-b-[1px] border-b-gray-400 */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    /* Equivalent to gap-2 */
+    cursor: pointer;
+    transition-duration: 300ms;
+    /* Equivalent to duration-300 */
+    width: 100%;
+}
+
+.productLi:hover {
+    color: #000;
+    /* Equivalent to hover:text-black */
+    border-bottom-color: #4a5568;
+    /* Equivalent to hover:border-b-gray-700 */
+}

@@ -5,10 +5,16 @@ import ApiIcon from "@mui/icons-material/Api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/amazonSlice';
 
 
 const Products = ({ productsData }) => {
     console.log(productsData);
+
+    const dispatch = useDispatch();
+
+
     // useEffect(() => {
     //     async function ProductsData() {
     //         let data = await axios.get("https://fakestoreapi.com/products");

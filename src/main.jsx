@@ -1,7 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
 import App from './App.jsx'
 import './index.css'
+
+
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store.js'
+
 
 import {
   createBrowserRouter,
@@ -9,6 +16,9 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home.jsx';
 import SignIn from './pages/Signin.jsx';
+import Cart from './pages/Cart.jsx';
+
+
 
 
 const router = createBrowserRouter([
@@ -22,8 +32,12 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch('https://fakestoreapi.com/products')
       },
       {
-        path: "signIn",
+        path: "/signIn",
         element: <SignIn />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       }
     ],
 
@@ -31,7 +45,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={"loading"} persistor={persistor}>
+      <RouterProvider router={router} />
+    </PersistGate>
+  </Provider>
+  // </React.StrictMode>,
 )

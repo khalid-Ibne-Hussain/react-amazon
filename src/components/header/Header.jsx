@@ -9,11 +9,15 @@ import { useState } from "react";
 import { allItems } from "../../constants";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 
 const Header = () => {
     const [showAll, setShowAll] = useState(false);
+
+    const products = useSelector((state) => state.amazon.products);
+    console.log(products);
 
 
     return (
@@ -21,9 +25,11 @@ const Header = () => {
             <div className="w-full bg-amazon_blue text-white px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4">
 
                 {/* ________________ logo Start */}
-                <div className="headerHover">
-                    <img className="w-24 mt-2" src={logo} alt="logo image" />
-                </div>
+                <Link to="/">
+                    <div className="headerHover">
+                        <img className="w-24 mt-2" src={logo} alt="logo image" />
+                    </div>
+                </Link>
                 {/* ________________ logo End */}
                 {/* ________________ Delivery Start */}
                 <div className="headerHover hidden mdl:inline-flex">
@@ -77,12 +83,14 @@ const Header = () => {
                 </div>
                 {/* ________________ Returns End */}
                 {/* ________________ Cart Start */}
-                <div className="flex  justify-center px-2 h-[80%]  items-center border border-transparent hover:border-white cursor-pointer duration-100 relative">
-                    <ShoppingCartIcon />
-                    <p className="text-xs font-semibold mt-3 text-whiteText">
-                        Cart <span className='absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center'>0</span>
-                    </p>
-                </div>
+                <Link to="/cart">
+                    <div className="flex  justify-center px-2 h-[80%]  items-center border border-transparent hover:border-white cursor-pointer duration-100 relative">
+                        <ShoppingCartIcon />
+                        <p className="text-xs font-semibold mt-3 text-whiteText">
+                            Cart <span className='absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center'>{products.length > 0 ? products.length : 0}</span>
+                        </p>
+                    </div>
+                </Link>
                 {/* ________________ Cart End */}
             </div>
             <HeaderBottom />
